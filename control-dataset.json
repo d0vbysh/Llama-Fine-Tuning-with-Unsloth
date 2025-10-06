@@ -1,0 +1,402 @@
+[
+  {
+    "code": "public class DataProcessor\n{\n    public string ConcatenateStrings(List<string> items)\n    {\n        string result = \"\";\n        foreach (var item in items)\n        {\n            result += item;\n        }\n        return result;\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class DatabaseQuery\n{\n    public List<User> GetActiveUsers()\n    {\n        var allUsers = context.Users.ToList();\n        return allUsers.Where(u => u.IsActive).ToList();\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class SearchAlgorithm\n{\n    public bool FindDuplicate(int[] array1, int[] array2)\n    {\n        foreach (var item1 in array1)\n        {\n            foreach (var item2 in array2)\n            {\n                if (item1 == item2) return true;\n            }\n        }\n        return false;\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class FileProcessor\n{\n    public void ProcessLargeFile(string filePath)\n    {\n        string[] lines = File.ReadAllLines(filePath);\n        foreach (string line in lines)\n        {\n            ProcessLine(line);\n        }\n    }\n    private void ProcessLine(string line) { /* processing */ }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class CollectionManager\n{\n    public void AddUniqueItem(List<string> items, string newItem)\n    {\n        if (!items.Contains(newItem))\n        {\n            items.Add(newItem);\n        }\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class AsyncHandler\n{\n    public async Task<string> GetDataBlocking(string url)\n    {\n        using var client = new HttpClient();\n        return client.GetStringAsync(url).Result;\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class DataConverter\n{\n    public List<object> ConvertToObjects(int[] numbers)\n    {\n        var result = new List<object>();\n        foreach (var number in numbers)\n        {\n            result.Add((object)number);\n        }\n        return result;\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class ExceptionHandler\n{\n    public bool TryParseNumbers(string[] inputs)\n    {\n        foreach (string input in inputs)\n        {\n            try\n            {\n                int.Parse(input);\n            }\n            catch (FormatException)\n            {\n                return false;\n            }\n        }\n        return true;\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class ReflectionProcessor\n{\n    public void ProcessObjects(object[] objects)\n    {\n        foreach (var obj in objects)\n        {\n            var type = obj.GetType();\n            var properties = type.GetProperties();\n            foreach (var prop in properties)\n            {\n                var value = prop.GetValue(obj);\n                Console.WriteLine($\"{prop.Name}: {value}\");\n            }\n        }\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class RegexProcessor\n{\n    public List<string> ExtractEmails(List<string> texts)\n    {\n        var emails = new List<string>();\n        foreach (var text in texts)\n        {\n            var regex = new Regex(@\"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}\");\n            var matches = regex.Matches(text);\n            foreach (Match match in matches)\n            {\n                emails.Add(match.Value);\n            }\n        }\n        return emails;\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class DictionaryLookup\n{\n    private Dictionary<string, int> _data = new Dictionary<string, int>();\n    \n    public void AddOrUpdate(string key, int value)\n    {\n        if (_data.ContainsKey(key))\n        {\n            _data[key] = value;\n        }\n        else\n        {\n            _data.Add(key, value);\n        }\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class SortingAlgorithm\n{\n    public int[] BubbleSort(int[] array)\n    {\n        int n = array.Length;\n        for (int i = 0; i < n - 1; i++)\n        {\n            for (int j = 0; j < n - i - 1; j++)\n            {\n                if (array[j] > array[j + 1])\n                {\n                    int temp = array[j];\n                    array[j] = array[j + 1];\n                    array[j + 1] = temp;\n                }\n            }\n        }\n        return array;\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class XmlProcessor\n{\n    public void ProcessXmlNodes(XmlDocument doc)\n    {\n        foreach (XmlNode node in doc.SelectNodes(\"//item\"))\n        {\n            var childNodes = node.SelectNodes(\".//child\");\n            foreach (XmlNode child in childNodes)\n            {\n                ProcessChild(child);\n            }\n        }\n    }\n    private void ProcessChild(XmlNode child) { /* processing */ }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class DataAggregator\n{\n    public Dictionary<string, int> CountItems(List<string> items)\n    {\n        var counts = new Dictionary<string, int>();\n        foreach (var item in items)\n        {\n            if (counts.ContainsKey(item))\n                counts[item]++;\n            else\n                counts[item] = 1;\n        }\n        return counts;\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class TaskProcessor\n{\n    public async Task ProcessTasksSequentially(List<Func<Task>> tasks)\n    {\n        foreach (var task in tasks)\n        {\n            await task();\n        }\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class ImageProcessor\n{\n    public void ResizeImages(List<string> imagePaths)\n    {\n        foreach (var path in imagePaths)\n        {\n            using var image = Image.FromFile(path);\n            using var resized = new Bitmap(image, new Size(100, 100));\n            resized.Save(path.Replace(\".jpg\", \"_small.jpg\"));\n        }\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class CacheManager\n{\n    private List<CacheItem> _cache = new List<CacheItem>();\n    \n    public CacheItem GetItem(string key)\n    {\n        return _cache.FirstOrDefault(x => x.Key == key);\n    }\n    \n    public void AddItem(CacheItem item)\n    {\n        _cache.Add(item);\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class JsonSerializer\n{\n    public List<T> DeserializeList<T>(List<string> jsonStrings)\n    {\n        var results = new List<T>();\n        foreach (var json in jsonStrings)\n        {\n            var obj = JsonConvert.DeserializeObject<T>(json);\n            results.Add(obj);\n        }\n        return results;\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class NetworkClient\n{\n    public List<string> FetchUrlsSequentially(List<string> urls)\n    {\n        var results = new List<string>();\n        using var client = new HttpClient();\n        foreach (var url in urls)\n        {\n            var response = client.GetStringAsync(url).Result;\n            results.Add(response);\n        }\n        return results;\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class DataValidator\n{\n    public bool ValidateRecords(List<Record> records)\n    {\n        foreach (var record in records)\n        {\n            if (!IsValidRecord(record))\n                return false;\n        }\n        return true;\n    }\n    \n    private bool IsValidRecord(Record record)\n    {\n        return records.Any(r => r.Id != record.Id && r.Email == record.Email);\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class StringManipulator\n{\n    public string RemoveSubstring(string text, string toRemove)\n    {\n        while (text.Contains(toRemove))\n        {\n            text = text.Replace(toRemove, \"\");\n        }\n        return text;\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class DataProcessor\n{\n    public List<ProcessedData> ProcessInMemory(List<RawData> data)\n    {\n        var processed = new List<ProcessedData>();\n        var intermediateResults = new List<IntermediateData>();\n        \n        foreach (var item in data)\n        {\n            intermediateResults.Add(Transform(item));\n        }\n        \n        foreach (var intermediate in intermediateResults)\n        {\n            processed.Add(Finalize(intermediate));\n        }\n        \n        return processed;\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class EventProcessor\n{\n    public void ProcessEvents(List<Event> events)\n    {\n        var sortedEvents = events.OrderBy(e => e.Timestamp).ToList();\n        foreach (var evt in sortedEvents)\n        {\n            var relatedEvents = events.Where(e => e.CorrelationId == evt.CorrelationId).ToList();\n            ProcessRelatedEvents(relatedEvents);\n        }\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class TreeProcessor\n{\n    public void ProcessTreeRecursive(TreeNode node)\n    {\n        if (node == null) return;\n        \n        ProcessNode(node);\n        \n        foreach (var child in node.Children)\n        {\n            ProcessTreeRecursive(child);\n        }\n    }\n    \n    private void ProcessNode(TreeNode node)\n    {\n        Thread.Sleep(1); // Simulating heavy processing\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class ConfigurationReader\n{\n    public string GetSetting(string key)\n    {\n        var configFile = File.ReadAllText(\"config.json\");\n        var config = JsonConvert.DeserializeObject<Dictionary<string, string>>(configFile);\n        return config.ContainsKey(key) ? config[key] : null;\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class LogProcessor\n{\n    public void ProcessLogFiles(string[] logPaths)\n    {\n        var allLogs = new List<string>();\n        foreach (var path in logPaths)\n        {\n            allLogs.AddRange(File.ReadAllLines(path));\n        }\n        \n        var errors = allLogs.Where(log => log.Contains(\"ERROR\")).ToList();\n        ProcessErrors(errors);\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class DataComparison\n{\n    public List<Difference> FindDifferences(List<Record> list1, List<Record> list2)\n    {\n        var differences = new List<Difference>();\n        foreach (var record1 in list1)\n        {\n            var match = list2.FirstOrDefault(r2 => r2.Id == record1.Id);\n            if (match == null || !record1.Equals(match))\n            {\n                differences.Add(new Difference(record1, match));\n            }\n        }\n        return differences;\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class DatabaseBulkInsert\n{\n    public void InsertRecords(List<Record> records)\n    {\n        using var connection = new SqlConnection(connectionString);\n        connection.Open();\n        \n        foreach (var record in records)\n        {\n            var command = new SqlCommand(\"INSERT INTO Records VALUES (@id, @name)\", connection);\n            command.Parameters.AddWithValue(\"@id\", record.Id);\n            command.Parameters.AddWithValue(\"@name\", record.Name);\n            command.ExecuteNonQuery();\n        }\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class MatrixOperations\n{\n    public int[,] MultiplyMatrices(int[,] matrix1, int[,] matrix2)\n    {\n        int rows1 = matrix1.GetLength(0);\n        int cols1 = matrix1.GetLength(1);\n        int cols2 = matrix2.GetLength(1);\n        \n        int[,] result = new int[rows1, cols2];\n        \n        for (int i = 0; i < rows1; i++)\n        {\n            for (int j = 0; j < cols2; j++)\n            {\n                for (int k = 0; k < cols1; k++)\n                {\n                    result[i, j] += matrix1[i, k] * matrix2[k, j];\n                }\n            }\n        }\n        return result;\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def process_large_list(items):\n    result = \"\"\n    for item in items:\n        result += str(item) + \",\"\n    return result[:-1]",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def find_duplicates(list1, list2):\n    duplicates = []\n    for item1 in list1:\n        for item2 in list2:\n            if item1 == item2:\n                duplicates.append(item1)\n    return duplicates",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def read_large_file(filename):\n    with open(filename, 'r') as f:\n        content = f.read()\n    lines = content.split('\\n')\n    return [line.strip() for line in lines if line.strip()]",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def check_membership(large_list, item):\n    return item in large_list",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "import re\n\ndef extract_emails(texts):\n    emails = []\n    for text in texts:\n        pattern = r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}'\n        matches = re.findall(pattern, text)\n        emails.extend(matches)\n    return emails",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def fibonacci_recursive(n):\n    if n <= 1:\n        return n\n    return fibonacci_recursive(n-1) + fibonacci_recursive(n-2)",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def deep_copy_dict(original_dict):\n    import json\n    return json.loads(json.dumps(original_dict))",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def process_nested_data(data):\n    result = []\n    for outer_item in data:\n        for inner_item in outer_item['items']:\n            for detail in inner_item['details']:\n                if detail['active']:\n                    result.append(detail)\n    return result",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def sort_large_dataset(data):\n    # Bubble sort implementation\n    n = len(data)\n    for i in range(n):\n        for j in range(0, n-i-1):\n            if data[j] > data[j+1]:\n                data[j], data[j+1] = data[j+1], data[j]\n    return data",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def search_in_list(items, target):\n    for i, item in enumerate(items):\n        if item == target:\n            return i\n    return -1",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def count_occurrences(text, patterns):\n    counts = {}\n    for pattern in patterns:\n        count = 0\n        for i in range(len(text)):\n            if text[i:i+len(pattern)] == pattern:\n                count += 1\n        counts[pattern] = count\n    return counts",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def remove_duplicates_slow(items):\n    unique_items = []\n    for item in items:\n        if item not in unique_items:\n            unique_items.append(item)\n    return unique_items",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "class DataProcessor:\n    def __init__(self):\n        self.cache = []\n    \n    def get_processed_data(self, key):\n        for item in self.cache:\n            if item['key'] == key:\n                return item['value']\n        return None",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def matrix_multiply_naive(matrix1, matrix2):\n    rows1, cols1 = len(matrix1), len(matrix1[0])\n    rows2, cols2 = len(matrix2), len(matrix2[0])\n    \n    result = [[0 for _ in range(cols2)] for _ in range(rows1)]\n    \n    for i in range(rows1):\n        for j in range(cols2):\n            for k in range(cols1):\n                result[i][j] += matrix1[i][k] * matrix2[k][j]\n    \n    return result",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def parse_data_with_exceptions(data_strings):\n    parsed_data = []\n    for data_str in data_strings:\n        try:\n            parsed = int(data_str)\n            parsed_data.append(parsed)\n        except ValueError:\n            pass\n    return parsed_data",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def filter_and_transform(data):\n    filtered = []\n    for item in data:\n        if item > 0:\n            filtered.append(item)\n    \n    transformed = []\n    for item in filtered:\n        transformed.append(item * 2)\n    \n    return transformed",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def load_config_repeatedly(config_file):\n    import json\n    settings = {}\n    for i in range(100):\n        with open(config_file, 'r') as f:\n            config = json.load(f)\n            settings.update(config)\n    return settings",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def calculate_distances(points):\n    import math\n    distances = []\n    for i in range(len(points)):\n        for j in range(i+1, len(points)):\n            p1, p2 = points[i], points[j]\n            distance = math.sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)\n            distances.append(distance)\n    return distances",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def merge_dictionaries_slow(dict_list):\n    result = {}\n    for dictionary in dict_list:\n        for key, value in dictionary.items():\n            if key in result:\n                result[key].append(value)\n            else:\n                result[key] = [value]\n    return result",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def process_xml_slow(xml_string):\n    import xml.etree.ElementTree as ET\n    root = ET.fromstring(xml_string)\n    \n    results = []\n    for element in root.iter():\n        for child in element:\n            if child.tag == 'item':\n                results.append(child.text)\n    return results",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def generate_report(data):\n    report = \"\"\n    for item in data:\n        report += f\"ID: {item['id']}, Name: {item['name']}, Status: {item['status']}\\n\"\n    return report",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def find_common_elements(lists):\n    if not lists:\n        return []\n    \n    common = lists[0]\n    for lst in lists[1:]:\n        new_common = []\n        for item in common:\n            if item in lst:\n                new_common.append(item)\n        common = new_common\n    return common",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def validate_emails_slow(email_list):\n    import re\n    valid_emails = []\n    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'\n    \n    for email in email_list:\n        if re.match(pattern, email):\n            valid_emails.append(email)\n    return valid_emails",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def aggregate_data_inefficient(records):\n    aggregated = {}\n    for record in records:\n        category = record['category']\n        if category not in aggregated:\n            aggregated[category] = {'sum': 0, 'count': 0}\n        aggregated[category]['sum'] += record['value']\n        aggregated[category]['count'] += 1\n    \n    # Calculate averages inefficiently\n    for category in aggregated:\n        total_sum = aggregated[category]['sum']\n        count = aggregated[category]['count']\n        aggregated[category]['average'] = total_sum / count\n    \n    return aggregated",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def search_nested_structures(data, target):\n    found_items = []\n    for item in data:\n        if isinstance(item, dict):\n            for key, value in item.items():\n                if value == target:\n                    found_items.append(item)\n                elif isinstance(value, (list, dict)):\n                    nested_results = search_nested_structures([value], target)\n                    found_items.extend(nested_results)\n        elif isinstance(item, list):\n            nested_results = search_nested_structures(item, target)\n            found_items.extend(nested_results)\n        elif item == target:\n            found_items.append(item)\n    return found_items",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def update_records_one_by_one(database_connection, records):\n    cursor = database_connection.cursor()\n    for record in records:\n        query = f\"UPDATE users SET name='{record['name']}', email='{record['email']}' WHERE id={record['id']}\"\n        cursor.execute(query)\n        database_connection.commit()",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def calculate_statistics_multiple_passes(numbers):\n    total = sum(numbers)\n    count = len(numbers)\n    mean = total / count\n    \n    variance_sum = 0\n    for num in numbers:\n        variance_sum += (num - mean) ** 2\n    variance = variance_sum / count\n    \n    sorted_numbers = sorted(numbers)\n    median = sorted_numbers[len(sorted_numbers) // 2]\n    \n    return {'mean': mean, 'variance': variance, 'median': median}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def process_images_sequentially(image_paths):\n    from PIL import Image\n    processed = []\n    for path in image_paths:\n        img = Image.open(path)\n        resized = img.resize((100, 100))\n        processed.append(resized)\n    return processed",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "function processLargeArray(items) {\n    let result = \"\";\n    for (let i = 0; i < items.length; i++) {\n        result += items[i] + \",\";\n    }\n    return result.slice(0, -1);\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "function findIntersection(arr1, arr2) {\n    const intersection = [];\n    for (let i = 0; i < arr1.length; i++) {\n        for (let j = 0; j < arr2.length; j++) {\n            if (arr1[i] === arr2[j]) {\n                intersection.push(arr1[i]);\n            }\n        }\n    }\n    return intersection;\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "function recursiveFibonacci(n) {\n    if (n <= 1) return n;\n    return recursiveFibonacci(n - 1) + recursiveFibonacci(n - 2);\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "function deepCloneObject(obj) {\n    return JSON.parse(JSON.stringify(obj));\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "function bubbleSortArray(arr) {\n    const n = arr.length;\n    for (let i = 0; i < n - 1; i++) {\n        for (let j = 0; j < n - i - 1; j++) {\n            if (arr[j] > arr[j + 1]) {\n                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];\n            }\n        }\n    }\n    return arr;\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "function searchLinear(array, target) {\n    for (let i = 0; i < array.length; i++) {\n        if (array[i] === target) {\n            return i;\n        }\n    }\n    return -1;\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "function removeDuplicatesInefficient(arr) {\n    const unique = [];\n    for (let i = 0; i < arr.length; i++) {\n        if (!unique.includes(arr[i])) {\n            unique.push(arr[i]);\n        }\n    }\n    return unique;\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "function processNestedData(data) {\n    const result = [];\n    for (const outer of data) {\n        for (const inner of outer.items) {\n            for (const detail of inner.details) {\n                if (detail.active) {\n                    result.push(detail);\n                }\n            }\n        }\n    }\n    return result;\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "function countOccurrences(text, patterns) {\n    const counts = {};\n    for (const pattern of patterns) {\n        let count = 0;\n        for (let i = 0; i <= text.length - pattern.length; i++) {\n            if (text.substr(i, pattern.length) === pattern) {\n                count++;\n            }\n        }\n        counts[pattern] = count;\n    }\n    return counts;\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "class InefficientCache {\n    constructor() {\n        this.cache = [];\n    }\n    \n    get(key) {\n        for (const item of this.cache) {\n            if (item.key === key) {\n                return item.value;\n            }\n        }\n        return null;\n    }\n    \n    set(key, value) {\n        this.cache.push({ key, value });\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "function matrixMultiplyNaive(matrix1, matrix2) {\n    const rows1 = matrix1.length;\n    const cols1 = matrix1[0].length;\n    const cols2 = matrix2[0].length;\n    \n    const result = Array(rows1).fill().map(() => Array(cols2).fill(0));\n    \n    for (let i = 0; i < rows1; i++) {\n        for (let j = 0; j < cols2; j++) {\n            for (let k = 0; k < cols1; k++) {\n                result[i][j] += matrix1[i][k] * matrix2[k][j];\n            }\n        }\n    }\n    \n    return result;\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "function filterAndTransformInefficient(data) {\n    const filtered = [];\n    for (const item of data) {\n        if (item > 0) {\n            filtered.push(item);\n        }\n    }\n    \n    const transformed = [];\n    for (const item of filtered) {\n        transformed.push(item * 2);\n    }\n    \n    return transformed;\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "function createRegexInLoop(texts, pattern) {\n    const matches = [];\n    for (const text of texts) {\n        const regex = new RegExp(pattern, 'g');\n        const found = text.match(regex);\n        if (found) {\n            matches.push(...found);\n        }\n    }\n    return matches;\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "function calculateDistances(points) {\n    const distances = [];\n    for (let i = 0; i < points.length; i++) {\n        for (let j = i + 1; j < points.length; j++) {\n            const dx = points[i].x - points[j].x;\n            const dy = points[i].y - points[j].y;\n            const distance = Math.sqrt(dx * dx + dy * dy);\n            distances.push(distance);\n        }\n    }\n    return distances;\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "async function fetchDataSequentially(urls) {\n    const results = [];\n    for (const url of urls) {\n        const response = await fetch(url);\n        const data = await response.json();\n        results.push(data);\n    }\n    return results;\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "function parseJsonStringsSlowly(jsonStrings) {\n    const results = [];\n    for (const jsonString of jsonStrings) {\n        try {\n            const parsed = JSON.parse(jsonString);\n            results.push(parsed);\n        } catch (error) {\n            console.error('Parse error:', error);\n        }\n    }\n    return results;\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "function findCommonElements(arrays) {\n    if (arrays.length === 0) return [];\n    \n    let common = arrays[0];\n    for (let i = 1; i < arrays.length; i++) {\n        const newCommon = [];\n        for (const item of common) {\n            if (arrays[i].includes(item)) {\n                newCommon.push(item);\n            }\n        }\n        common = newCommon;\n    }\n    return common;\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "function aggregateDataInefficiently(records) {\n    const groups = {};\n    \n    for (const record of records) {\n        if (!groups[record.category]) {\n            groups[record.category] = [];\n        }\n        groups[record.category].push(record);\n    }\n    \n    const aggregated = {};\n    for (const category in groups) {\n        let sum = 0;\n        let count = 0;\n        \n        for (const record of groups[category]) {\n            sum += record.value;\n            count++;\n        }\n        \n        aggregated[category] = {\n            sum: sum,\n            count: count,\n            average: sum / count\n        };\n    }\n    \n    return aggregated;\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "function processLargeDataset(data) {\n    // Multiple inefficient operations on the same dataset\n    const filtered = data.filter(item => item.value > 100);\n    const sorted = data.sort((a, b) => a.value - b.value);\n    const mapped = data.map(item => ({ ...item, processed: true }));\n    const reduced = data.reduce((acc, item) => acc + item.value, 0);\n    \n    return { filtered, sorted, mapped, total: reduced };\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "function updateDOMInefficiently(items) {\n    const container = document.getElementById('container');\n    for (const item of items) {\n        const div = document.createElement('div');\n        div.textContent = item;\n        container.appendChild(div);\n        \n        // Force layout recalculation\n        const height = container.offsetHeight;\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "function searchNestedObjects(objects, searchValue) {\n    const results = [];\n    \n    function searchRecursive(obj) {\n        if (typeof obj === 'object' && obj !== null) {\n            for (const key in obj) {\n                if (obj[key] === searchValue) {\n                    results.push(obj);\n                } else if (typeof obj[key] === 'object') {\n                    searchRecursive(obj[key]);\n                }\n            }\n        }\n    }\n    \n    for (const obj of objects) {\n        searchRecursive(obj);\n    }\n    \n    return results;\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "function validateEmailsSlowly(emails) {\n    const validEmails = [];\n    const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\n    \n    for (const email of emails) {\n        if (emailRegex.test(email)) {\n            validEmails.push(email);\n        }\n    }\n    \n    return validEmails;\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "function groupDataInefficiently(data, groupBy) {\n    const groups = {};\n    \n    for (const item of data) {\n        const key = item[groupBy];\n        if (!groups[key]) {\n            groups[key] = [];\n        }\n        groups[key].push(item);\n    }\n    \n    // Sort each group separately (inefficient)\n    for (const key in groups) {\n        groups[key] = groups[key].sort((a, b) => a.value - b.value);\n    }\n    \n    return groups;\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "function calculateStatisticsInMultiplePasses(numbers) {\n    const sum = numbers.reduce((a, b) => a + b, 0);\n    const mean = sum / numbers.length;\n    \n    let variance = 0;\n    for (const num of numbers) {\n        variance += Math.pow(num - mean, 2);\n    }\n    variance /= numbers.length;\n    \n    const sorted = numbers.slice().sort((a, b) => a - b);\n    const median = sorted[Math.floor(sorted.length / 2)];\n    \n    return { mean, variance, median };\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class MemoryLeakProne\n{\n    private static List<byte[]> _cache = new List<byte[]>();\n    \n    public void ProcessData(byte[] data)\n    {\n        _cache.Add(data);\n        // Never removes old data, causing memory leak\n        ProcessInternal(data);\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def inefficient_data_processing(large_dataset):\n    # Multiple passes through large dataset\n    filtered = [item for item in large_dataset if item['status'] == 'active']\n    sorted_data = sorted(large_dataset, key=lambda x: x['priority'])\n    counted = len([item for item in large_dataset if item['type'] == 'urgent'])\n    return filtered, sorted_data, counted",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "function inefficientDOMUpdates(data) {\n    const container = document.getElementById('list');\n    container.innerHTML = ''; // Clear existing content\n    \n    for (const item of data) {\n        const element = document.createElement('div');\n        element.innerHTML = `<span>${item.name}</span><button onclick='delete(${item.id})'>Delete</button>`;\n        container.appendChild(element);\n        // Triggers layout recalculation for each append\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class InMemoryProcessor\n{\n    public List<ProcessedItem> ProcessAllAtOnce(IEnumerable<RawItem> items)\n    {\n        var allItems = items.ToList(); // Load everything into memory\n        var processed = new List<ProcessedItem>();\n        \n        foreach (var item in allItems)\n        {\n            processed.Add(new ProcessedItem(item));\n        }\n        \n        return processed;\n    }\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "def slow_text_processing(text_files):\n    all_words = []\n    for file_path in text_files:\n        with open(file_path, 'r') as f:\n            content = f.read()\n            words = content.split()\n            for word in words:\n                if word not in all_words:  # O(n) lookup each time\n                    all_words.append(word)\n    return all_words",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "function expensiveOperationInLoop(items) {\n    const results = [];\n    for (const item of items) {\n        // Expensive DOM query in each iteration\n        const element = document.querySelector(`[data-id='${item.id}']`);\n        if (element) {\n            results.push({\n                item: item,\n                element: element,\n                computed: window.getComputedStyle(element)\n            });\n        }\n    }\n    return results;\n}",
+    "has_performance_issue": "YES"
+  },
+  {
+    "code": "public class OptimizedStringBuilder\n{\n    public string ConcatenateStrings(List<string> items)\n    {\n        var sb = new StringBuilder();\n        foreach (var item in items)\n        {\n            sb.Append(item);\n        }\n        return sb.ToString();\n    }\n}",
+    "has_performance_issue": "NO"
+  },
+  {
+    "code": "public class EfficientDatabaseQuery\n{\n    public List<User> GetActiveUsers()\n    {\n        return context.Users.Where(u => u.IsActive).ToList();\n    }\n}",
+    "has_performance_issue": "NO"
+  },
+  {
+    "code": "public class OptimizedSearch\n{\n    public bool HasCommonElements(int[] array1, int[] array2)\n    {\n        var set2 = new HashSet<int>(array2);\n        return array1.Any(item => set2.Contains(item));\n    }\n}",
+    "has_performance_issue": "NO"
+  },
+  {
+    "code": "public class StreamProcessor\n{\n    public void ProcessLargeFile(string filePath)\n    {\n        using var reader = new StreamReader(filePath);\n        string line;\n        while ((line = reader.ReadLine()) != null)\n        {\n            ProcessLine(line);\n        }\n    }\n    private void ProcessLine(string line) { /* processing */ }\n}",
+    "has_performance_issue": "NO"
+  },
+  {
+    "code": "public class EfficientCollectionManager\n{\n    private HashSet<string> _items = new HashSet<string>();\n    \n    public void AddUniqueItem(string newItem)\n    {\n        _items.Add(newItem);\n    }\n    \n    public bool Contains(string item)\n    {\n        return _items.Contains(item);\n    }\n}",
+    "has_performance_issue": "NO"
+  },
+  {
+    "code": "def efficient_string_join(items):\n    return ','.join(str(item) for item in items)",
+    "has_performance_issue": "NO"
+  },
+  {
+    "code": "def find_duplicates_efficient(list1, list2):\n    set2 = set(list2)\n    return [item for item in list1 if item in set2]",
+    "has_performance_issue": "NO"
+  },
+  {
+    "code": "def read_large_file_efficiently(filename):\n    with open(filename, 'r') as f:\n        for line in f:\n            line = line.strip()\n            if line:\n                yield line",
+    "has_performance_issue": "NO"
+  },
+  {
+    "code": "def fibonacci_memoized():\n    cache = {0: 0, 1: 1}\n    def fib(n):\n        if n not in cache:\n            cache[n] = fib(n-1) + fib(n-2)\n        return cache[n]\n    return fib",
+    "has_performance_issue": "NO"
+  },
+  {
+    "code": "function efficientStringJoin(items) {\n    return items.join(',');\n}",
+    "has_performance_issue": "NO"
+  },
+  {
+    "code": "function findIntersectionEfficient(arr1, arr2) {\n    const set2 = new Set(arr2);\n    return arr1.filter(item => set2.has(item));\n}",
+    "has_performance_issue": "NO"
+  },
+  {
+    "code": "function removeDuplicatesEfficient(arr) {\n    return [...new Set(arr)];\n}",
+    "has_performance_issue": "NO"
+  },
+  {
+    "code": "async function fetchDataInParallel(urls) {\n    const promises = urls.map(url => fetch(url).then(response => response.json()));\n    return await Promise.all(promises);\n}",
+    "has_performance_issue": "NO"
+  }
+]
